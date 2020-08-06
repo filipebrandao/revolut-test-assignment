@@ -1,0 +1,4 @@
+include ':api'
+include ':domain'
+include ':common'
+include ':app'

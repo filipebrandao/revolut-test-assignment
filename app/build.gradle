@@ -1,0 +1,66 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply from: "$rootDir/linters/detekt.gradle"
+apply from: "$rootDir/linters/ktlint.gradle"
+
+android {
+    compileSdkVersion app.compileSdk
+    buildToolsVersion app.buildToolsVersion
+
+    defaultConfig {
+        applicationId app.id
+        minSdkVersion app.minSdk
+        targetSdkVersion app.targetSdk
+        versionCode app.versionCode
+        versionName app.versionName
+        testInstrumentationRunner "com.filipebrandao.revolutassignment.UiTestsRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation project(':common')
+    implementation project(':domain')
+    implementation project(':api')
+
+    implementation libraries.kotlinStdLib
+    implementation libraries.coreKtx
+    implementation libraries.appCompat
+    implementation libraries.constraintLayout
+    implementation libraries.lifecycleExtensions
+    implementation libraries.lifecycleViewModelKtx
+    implementation libraries.material
+
+    implementation libraries.svgLoader
+    implementation libraries.rxJava
+    implementation libraries.rxAndroid2
+
+    implementation libraries.koinCore
+    implementation libraries.koinAndroid
+    implementation libraries.koinViewModel
+
+    androidTestImplementation testDependencies.espressoCore
+    androidTestImplementation testDependencies.espressoContrib
+    androidTestImplementation testDependencies.espressoIntents
+    androidTestImplementation testDependencies.testRunner
+    androidTestImplementation testDependencies.testRules
+    androidTestImplementation testDependencies.jUnit
+    androidTestImplementation testDependencies.testButlerLibrary
+    androidTestUtil  testDependencies.testButlerApp
+}
+
+preBuild.dependsOn(ktlint)
+preBuild.dependsOn('detekt')

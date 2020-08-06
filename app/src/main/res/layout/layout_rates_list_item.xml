@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/rate_list_item_height"
+    android:paddingStart="@dimen/rate_list_item_padding"
+    android:paddingEnd="@dimen/rate_list_item_padding">
+
+    <ImageView
+        android:id="@+id/logoView"
+        android:layout_width="@dimen/rate_list_item_logo_size"
+        android:layout_height="@dimen/rate_list_item_logo_size"
+        android:src="@drawable/rate_placeholder"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/titleView"
+        style="@style/ListItemTitle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/rate_list_item_padding"
+        android:gravity="bottom"
+        app:layout_constraintBottom_toTopOf="@id/subtitleView"
+        app:layout_constraintEnd_toStartOf="@id/valueView"
+        app:layout_constraintStart_toEndOf="@id/logoView"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="EUR" />
+
+    <TextView
+        android:id="@+id/subtitleView"
+        style="@style/ListItemSubtitle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/rate_list_item_padding"
+        android:ellipsize="end"
+        android:gravity="top"
+        android:maxLines="2"
+        android:textColor="@color/colorGrey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/valueView"
+        app:layout_constraintStart_toEndOf="@id/logoView"
+        app:layout_constraintTop_toBottomOf="@id/titleView"
+        tools:text="Euro Euro Euro Euro Euro Euro Euro Euro Euro Euro Euro" />
+
+    <EditText
+        android:id="@+id/valueView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/rate_list_item_padding"
+        android:backgroundTint="@color/colorGrey"
+        android:gravity="end"
+        android:hint="@string/currency_input_hint"
+        android:imeOptions="actionDone"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"
+        android:minWidth="@dimen/rate_list_item_value_min_width"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toEndOf="@id/logoView"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="LabelFor"
+        tools:text="123456789" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

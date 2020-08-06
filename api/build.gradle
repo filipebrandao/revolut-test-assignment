@@ -1,0 +1,46 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply from: "$rootDir/linters/detekt.gradle"
+apply from: "$rootDir/linters/ktlint.gradle"
+
+android {
+    compileSdkVersion app.compileSdk
+    buildToolsVersion app.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion app.minSdk
+        targetSdkVersion app.targetSdk
+        versionCode app.versionCode
+        versionName app.versionName
+
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation project(':common')
+    implementation libraries.coreKtx
+    implementation libraries.kotlinStdLib
+
+    implementation libraries.retrofit
+    implementation libraries.retrofitRxAdapter
+    implementation libraries.okhttp
+    implementation libraries.okhttpLogger
+    implementation libraries.retrofitMoshiConverter
+    implementation libraries.rxJava
+    implementation libraries.rxAndroid2
+    implementation libraries.koinCore
+
+    implementation libraries.koinCore
+}
+
+preBuild.dependsOn(ktlint)
+preBuild.dependsOn('detekt')

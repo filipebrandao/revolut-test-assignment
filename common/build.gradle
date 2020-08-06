@@ -1,0 +1,36 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply from: "$rootDir/linters/detekt.gradle"
+apply from: "$rootDir/linters/ktlint.gradle"
+
+android {
+    compileSdkVersion app.compileSdk
+    buildToolsVersion app.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion app.minSdk
+        targetSdkVersion app.targetSdk
+        versionCode app.versionCode
+        versionName app.versionName
+
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation libraries.coreKtx
+    implementation libraries.kotlinStdLib
+    implementation libraries.rxJava
+
+    implementation libraries.koinCore
+}
+
+preBuild.dependsOn(ktlint)
+preBuild.dependsOn('detekt')

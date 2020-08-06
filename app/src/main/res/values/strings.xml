@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">Revolut Test Assignment</string>
+
+    <string name="activity_title">Rates</string>
+    <string name="loading">Loading…</string>
+    <string name="error_failed_fetching_rates">There was an error while fetching the rates.</string>
+    <string name="try_again">Try again</string>
+    <string name="no_connection">No connection</string>
+    <string name="currency_input_hint">0</string>
+
+    <!-- Currencies -->
+    <string name="currency_eur">Euro</string>
+    <string name="currency_aud">Australia Dollar</string>
+    <string name="currency_bgn">Bulgaria Lev</string>
+    <string name="currency_brl">Brazil Real</string>
+    <string name="currency_cad">Canada Dollar</string>
+    <string name="currency_chf">Switzerland Franc</string>
+    <string name="currency_cny">China Yuan/Renminbi</string>
+    <string name="currency_czk">Czech Koruna</string>
+    <string name="currency_dkk">Denmark Krone</string>
+    <string name="currency_gbp">Great Britain Pound</string>
+    <string name="currency_hkd">Hong Kong Dollar</string>
+    <string name="currency_hrk">Croatia Kuna</string>
+    <string name="currency_huf">Hungary Forint</string>
+    <string name="currency_idr">Indonesia Rupiah</string>
+    <string name="currency_ils">Israel New Shekel</string>
+    <string name="currency_inr">India Rupee</string>
+    <string name="currency_isk">Iceland Krona</string>
+    <string name="currency_jpy">Japan Yen</string>
+    <string name="currency_krw">South Korea Won	</string>
+    <string name="currency_mxn">Mexico Peso</string>
+    <string name="currency_myr">Malaysia Ringgit</string>
+    <string name="currency_nok">Norway Kroner</string>
+    <string name="currency_nzd">New Zealand Dollar</string>
+    <string name="currency_php">Philippines Peso</string>
+    <string name="currency_pln">Poland Zloty</string>
+    <string name="currency_ron">Romania New Lei</string>
+    <string name="currency_rub">Russia Rouble</string>
+    <string name="currency_sek">Sweden Krona</string>
+    <string name="currency_sgd">Singapore Dollar</string>
+    <string name="currency_thb">Thailand Baht</string>
+    <string name="currency_usd">USA Dollar</string>
+    <string name="currency_zar">South Africa Rand</string>
+
+</resources>
